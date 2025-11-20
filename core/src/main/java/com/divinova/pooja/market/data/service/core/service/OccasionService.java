@@ -1,7 +1,8 @@
-package com.divinova.core.service;
+package com.divinova.pooja.market.data.service.core.service;
 
-import com.divinova.core.model.Occasion;
-import com.divinova.core.repository.OccasionRepository;
+import com.divinova.pooja.market.data.service.core.model.Occasion;
+import com.divinova.pooja.market.data.service.core.repository.OccasionRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

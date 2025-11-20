@@ -1,10 +1,9 @@
-package com.divinova.core.repository;
+package com.divinova.pooja.market.data.service.core.repository;
 
 
-import com.divinova.core.model.PoojaItem;
+import com.divinova.pooja.market.data.service.core.model.PoojaItem;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
+
 public interface PoojaItemRepository extends JpaRepository<PoojaItem, Long> {
 }

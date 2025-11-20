@@ -1,7 +1,7 @@
-package com.divinova.core.controller;
+package com.divinova.pooja.market.data.service.core.controller;
 
-import com.divinova.core.model.PoojaItemOccasionMapping;
-import com.divinova.core.service.PoojaOccasionMappingService;
+import com.divinova.pooja.market.data.service.core.model.PoojaItemOccasionMapping;
+import com.divinova.pooja.market.data.service.core.service.PoojaOccasionMappingService;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.ResponseEntity;

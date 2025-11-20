@@ -1,4 +1,4 @@
-package com.divinova.pooja_master_backend_service;
+package com.divinova.pooja.market.data.service.app;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
@@ -15,7 +15,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
                 contact = @Contact(name = "EshRan", email = "deswari2891@gmail.com")
         )
 )
-@SpringBootApplication(scanBasePackages = "com.divinova.*")
+@SpringBootApplication(scanBasePackages = {
+        "com.divinova.pooja.market.data.service.core.*"
+})
 public class PoojaMasterBackendServiceApplication {
 
 	public static void main(String[] args) {

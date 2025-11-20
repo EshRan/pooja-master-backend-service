@@ -1,11 +1,11 @@
-package com.divinova.core.service;
+package com.divinova.pooja.market.data.service.core.service;
 
-import com.divinova.core.model.Occasion;
-import com.divinova.core.model.PoojaItem;
-import com.divinova.core.model.PoojaItemOccasionMapping;
-import com.divinova.core.repository.OccasionRepository;
-import com.divinova.core.repository.PoojaItemOccasionMappingRepository;
-import com.divinova.core.repository.PoojaItemRepository;
+import com.divinova.pooja.market.data.service.core.model.Occasion;
+import com.divinova.pooja.market.data.service.core.model.PoojaItem;
+import com.divinova.pooja.market.data.service.core.model.PoojaItemOccasionMapping;
+import com.divinova.pooja.market.data.service.core.repository.OccasionRepository;
+import com.divinova.pooja.market.data.service.core.repository.PoojaItemOccasionMappingRepository;
+import com.divinova.pooja.market.data.service.core.repository.PoojaItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

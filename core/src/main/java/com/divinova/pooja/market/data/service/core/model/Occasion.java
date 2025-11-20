@@ -1,4 +1,4 @@
-package com.divinova.core.model;
+package com.divinova.pooja.market.data.service.core.model;
 
 import jakarta.persistence.*;
 import lombok.*;
