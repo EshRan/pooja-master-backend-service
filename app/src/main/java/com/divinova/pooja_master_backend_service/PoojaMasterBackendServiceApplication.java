@@ -1,9 +1,21 @@
 package com.divinova.pooja_master_backend_service;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Contact;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+
+@OpenAPIDefinition(
+        info = @Info(
+                title = "Pooja API",
+                version = "1.0.0",
+                description = "API documentation for Pooja Items and Occasions",
+                contact = @Contact(name = "EshRan", email = "deswari2891@gmail.com")
+        )
+)
+@SpringBootApplication(scanBasePackages = "com.divinova.*")
 public class PoojaMasterBackendServiceApplication {
 
 	public static void main(String[] args) {

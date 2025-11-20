@@ -1,0 +1,629 @@
+2025-11-20 10:24:54 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Starting PoojaMasterBackendServiceApplication using Java 21.0.9 with PID 8503 (/Users/charanteja/Divinova/Backend/pooja-master-backend-service/app/target/classes started by charanteja in /Users/charanteja/Divinova/Backend/pooja-master-backend-service)
+2025-11-20 10:24:54 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-20 10:24:55 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-20 10:24:55 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 JPA repository interfaces.
+2025-11-20 10:24:55 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-20 10:24:55 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-20 10:24:55 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-20 10:24:55 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-20 10:24:55 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-20 10:24:55 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 428 ms
+2025-11-20 10:24:55 WARN  [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flyway' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flyway' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception with message: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Cannot load driver class: org.postgresql.Driver
+2025-11-20 10:24:55 INFO  [main] o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-11-20 10:24:55 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-11-20 10:24:55 ERROR [main] o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flyway' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flyway' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception with message: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Cannot load driver class: org.postgresql.Driver
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.divinova.pooja_master_backend_service.PoojaMasterBackendServiceApplication.main(PoojaMasterBackendServiceApplication.java:10)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flyway' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception with message: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Cannot load driver class: org.postgresql.Driver
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	... 10 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception with message: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Cannot load driver class: org.postgresql.Driver
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:178)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
+	... 20 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Cannot load driver class: org.postgresql.Driver
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory$DependencyObjectProvider.getIfUnique(DefaultListableBeanFactory.java:2153)
+	at org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration$FlywayConfiguration.flyway(FlywayAutoConfiguration.java:172)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:146)
+	... 21 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Cannot load driver class: org.postgresql.Driver
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:178)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
+	... 37 common frames omitted
+Caused by: java.lang.IllegalStateException: Cannot load driver class: org.postgresql.Driver
+	at org.springframework.util.Assert.state(Assert.java:97)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.determineDriverClassName(DataSourceProperties.java:175)
+	at org.springframework.boot.autoconfigure.jdbc.PropertiesJdbcConnectionDetails.getDriverClassName(PropertiesJdbcConnectionDetails.java:49)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration.createDataSource(DataSourceConfiguration.java:55)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari.dataSource(DataSourceConfiguration.java:117)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:146)
+	... 38 common frames omitted
+2025-11-20 10:27:42 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Starting PoojaMasterBackendServiceApplication using Java 21.0.9 with PID 8596 (/Users/charanteja/Divinova/Backend/pooja-master-backend-service/app/target/classes started by charanteja in /Users/charanteja/Divinova/Backend/pooja-master-backend-service)
+2025-11-20 10:27:42 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-20 10:27:43 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-20 10:27:43 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2025-11-20 10:27:43 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-20 10:27:43 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-20 10:27:43 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-20 10:27:43 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-20 10:27:43 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-20 10:27:43 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 506 ms
+2025-11-20 10:27:43 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-20 10:27:43 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@29d070c7
+2025-11-20 10:27:43 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-20 10:27:43 WARN  [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unsupported Database: PostgreSQL 16.11
+2025-11-20 10:27:43 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-20 10:27:43 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-20 10:27:43 INFO  [main] o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-11-20 10:27:43 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-11-20 10:27:43 ERROR [main] o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unsupported Database: PostgreSQL 16.11
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.divinova.pooja_master_backend_service.PoojaMasterBackendServiceApplication.main(PoojaMasterBackendServiceApplication.java:10)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unsupported Database: PostgreSQL 16.11
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	... 10 common frames omitted
+Caused by: org.flywaydb.core.api.FlywayException: Unsupported Database: PostgreSQL 16.11
+	at org.flywaydb.core.internal.database.DatabaseTypeRegister.lambda$getDatabaseTypeForConnection$7(DatabaseTypeRegister.java:122)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at org.flywaydb.core.internal.database.DatabaseTypeRegister.getDatabaseTypeForConnection(DatabaseTypeRegister.java:122)
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:77)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:138)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	... 17 common frames omitted
+2025-11-20 10:28:34 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Starting PoojaMasterBackendServiceApplication using Java 21.0.9 with PID 8619 (/Users/charanteja/Divinova/Backend/pooja-master-backend-service/app/target/classes started by charanteja in /Users/charanteja/Divinova/Backend/pooja-master-backend-service)
+2025-11-20 10:28:34 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-20 10:28:34 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-20 10:28:34 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 JPA repository interfaces.
+2025-11-20 10:28:34 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-20 10:28:34 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-20 10:28:34 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-20 10:28:34 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-20 10:28:34 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-20 10:28:34 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 502 ms
+2025-11-20 10:28:35 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-20 10:28:35 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@28b523a
+2025-11-20 10:28:35 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-20 10:28:35 WARN  [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unsupported Database: PostgreSQL 16.11
+2025-11-20 10:28:35 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-20 10:28:35 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-20 10:28:35 INFO  [main] o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-11-20 10:28:35 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-11-20 10:28:35 ERROR [main] o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unsupported Database: PostgreSQL 16.11
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.divinova.pooja_master_backend_service.PoojaMasterBackendServiceApplication.main(PoojaMasterBackendServiceApplication.java:10)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unsupported Database: PostgreSQL 16.11
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	... 10 common frames omitted
+Caused by: org.flywaydb.core.api.FlywayException: Unsupported Database: PostgreSQL 16.11
+	at org.flywaydb.core.internal.database.DatabaseTypeRegister.lambda$getDatabaseTypeForConnection$7(DatabaseTypeRegister.java:122)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at org.flywaydb.core.internal.database.DatabaseTypeRegister.getDatabaseTypeForConnection(DatabaseTypeRegister.java:122)
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:77)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:138)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	... 17 common frames omitted
+2025-11-20 10:41:40 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Starting PoojaMasterBackendServiceApplication using Java 21.0.9 with PID 9506 (/Users/charanteja/Divinova/Backend/pooja-master-backend-service/app/target/classes started by charanteja in /Users/charanteja/Divinova/Backend/pooja-master-backend-service)
+2025-11-20 10:41:40 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-20 10:41:40 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-20 10:41:40 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2025-11-20 10:41:40 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-20 10:41:40 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-20 10:41:40 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-20 10:41:40 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-20 10:41:41 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-20 10:41:41 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 459 ms
+2025-11-20 10:41:41 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-20 10:41:41 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6097fca9
+2025-11-20 10:41:41 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-20 10:41:41 WARN  [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unsupported Database: PostgreSQL 16.11
+2025-11-20 10:41:41 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-20 10:41:41 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-20 10:41:41 INFO  [main] o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-11-20 10:41:41 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-11-20 10:41:41 ERROR [main] o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unsupported Database: PostgreSQL 16.11
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.divinova.pooja_master_backend_service.PoojaMasterBackendServiceApplication.main(PoojaMasterBackendServiceApplication.java:10)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unsupported Database: PostgreSQL 16.11
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	... 10 common frames omitted
+Caused by: org.flywaydb.core.api.FlywayException: Unsupported Database: PostgreSQL 16.11
+	at org.flywaydb.core.internal.database.DatabaseTypeRegister.lambda$getDatabaseTypeForConnection$7(DatabaseTypeRegister.java:122)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at org.flywaydb.core.internal.database.DatabaseTypeRegister.getDatabaseTypeForConnection(DatabaseTypeRegister.java:122)
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:77)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:138)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	... 17 common frames omitted
+2025-11-20 10:43:46 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Starting PoojaMasterBackendServiceApplication using Java 21.0.9 with PID 9707 (/Users/charanteja/Divinova/Backend/pooja-master-backend-service/app/target/classes started by charanteja in /Users/charanteja/Divinova/Backend/pooja-master-backend-service)
+2025-11-20 10:43:46 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-20 10:43:46 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-20 10:43:46 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2025-11-20 10:43:46 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-20 10:43:46 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-20 10:43:46 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-20 10:43:46 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-20 10:43:46 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-20 10:43:46 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 431 ms
+2025-11-20 10:43:46 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-20 10:43:46 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@27b337bb
+2025-11-20 10:43:46 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-20 10:43:46 INFO  [main] org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/mydb (PostgreSQL 16.11)
+2025-11-20 10:43:46 INFO  [main] o.f.c.i.s.JdbcTableSchemaHistory - Schema history table "public"."flyway_schema_history" does not exist yet
+2025-11-20 10:43:46 INFO  [main] o.f.core.internal.command.DbValidate - Successfully validated 1 migration (execution time 00:00.010s)
+2025-11-20 10:43:46 INFO  [main] o.f.c.i.s.JdbcTableSchemaHistory - Creating Schema History table "public"."flyway_schema_history" with baseline ...
+2025-11-20 10:43:46 INFO  [main] o.f.core.internal.command.DbBaseline - Successfully baselined schema with version: 1
+2025-11-20 10:43:46 INFO  [main] o.f.core.internal.command.DbMigrate - Current version of schema "public": 1
+2025-11-20 10:43:46 INFO  [main] o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+2025-11-20 10:43:46 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-20 10:43:46 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-20 10:43:46 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-20 10:43:46 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-20 10:43:46 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-20 10:43:47 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-20 10:43:47 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 10:43:47 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-20 10:43:47 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-11-20 10:43:47 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-11-20 10:43:47 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Started PoojaMasterBackendServiceApplication in 1.355 seconds (process running for 1.571)
+2025-11-20 10:45:05 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 10:45:05 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-20 10:45:05 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-20 11:04:43 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Starting PoojaMasterBackendServiceApplication using Java 21.0.9 with PID 10481 (/Users/charanteja/Divinova/Backend/pooja-master-backend-service/app/target/classes started by charanteja in /Users/charanteja/Divinova/Backend/pooja-master-backend-service)
+2025-11-20 11:04:43 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-20 11:04:43 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-20 11:04:43 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2025-11-20 11:04:43 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-20 11:04:43 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-20 11:04:43 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-20 11:04:43 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-20 11:04:43 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-20 11:04:43 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 434 ms
+2025-11-20 11:04:43 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-20 11:04:43 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1ac730cd
+2025-11-20 11:04:43 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-20 11:04:43 INFO  [main] org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/mydb (PostgreSQL 16.11)
+2025-11-20 11:04:44 INFO  [main] o.f.c.i.s.JdbcTableSchemaHistory - Schema history table "public"."flyway_schema_history" does not exist yet
+2025-11-20 11:04:44 INFO  [main] o.f.core.internal.command.DbValidate - Successfully validated 5 migrations (execution time 00:00.008s)
+2025-11-20 11:04:44 INFO  [main] o.f.c.i.s.JdbcTableSchemaHistory - Creating Schema History table "public"."flyway_schema_history" ...
+2025-11-20 11:04:44 INFO  [main] o.f.core.internal.command.DbMigrate - Current version of schema "public": << Empty Schema >>
+2025-11-20 11:04:44 INFO  [main] o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "1 - create pooja items"
+2025-11-20 11:04:44 INFO  [main] o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "2 - create occasion"
+2025-11-20 11:04:44 INFO  [main] o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "3 - create pooja occasion mapping"
+2025-11-20 11:04:44 INFO  [main] o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "4 - create indices"
+2025-11-20 11:04:44 INFO  [main] o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "5 - create function triggers"
+2025-11-20 11:04:44 INFO  [main] o.f.core.internal.command.DbMigrate - Successfully applied 5 migrations to schema "public", now at version v5 (execution time 00:00.029s)
+2025-11-20 11:04:44 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-20 11:04:44 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-20 11:04:44 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-20 11:04:44 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-20 11:04:44 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-20 11:04:44 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-20 11:04:44 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 11:04:44 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-20 11:04:44 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-11-20 11:04:44 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-11-20 11:04:44 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Started PoojaMasterBackendServiceApplication in 1.387 seconds (process running for 1.601)
+2025-11-20 11:11:28 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-20 11:11:28 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-20 11:11:28 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-11-20 11:36:44 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 11:36:44 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-20 11:36:44 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-20 11:36:55 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Starting PoojaMasterBackendServiceApplication using Java 21.0.9 with PID 11496 (/Users/charanteja/Divinova/Backend/pooja-master-backend-service/app/target/classes started by charanteja in /Users/charanteja/Divinova/Backend/pooja-master-backend-service)
+2025-11-20 11:36:55 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-20 11:36:56 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-20 11:36:56 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 JPA repository interfaces.
+2025-11-20 11:36:56 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-20 11:36:56 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-20 11:36:56 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-20 11:36:56 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-20 11:36:56 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-20 11:36:56 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 442 ms
+2025-11-20 11:36:56 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-20 11:36:56 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@668cc9a2
+2025-11-20 11:36:56 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-20 11:36:56 INFO  [main] org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/mydb (PostgreSQL 16.11)
+2025-11-20 11:36:56 INFO  [main] o.f.c.i.s.JdbcTableSchemaHistory - Schema history table "public"."flyway_schema_history" does not exist yet
+2025-11-20 11:36:56 INFO  [main] o.f.core.internal.command.DbValidate - Successfully validated 5 migrations (execution time 00:00.008s)
+2025-11-20 11:36:56 INFO  [main] o.f.c.i.s.JdbcTableSchemaHistory - Creating Schema History table "public"."flyway_schema_history" ...
+2025-11-20 11:36:56 INFO  [main] o.f.core.internal.command.DbMigrate - Current version of schema "public": << Empty Schema >>
+2025-11-20 11:36:56 INFO  [main] o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "1 - create pooja items"
+2025-11-20 11:36:56 INFO  [main] o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "2 - create occasion"
+2025-11-20 11:36:56 INFO  [main] o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "3 - create pooja occasion mapping"
+2025-11-20 11:36:56 INFO  [main] o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "4 - create indices"
+2025-11-20 11:36:56 INFO  [main] o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "5 - create function triggers"
+2025-11-20 11:36:56 INFO  [main] o.f.core.internal.command.DbMigrate - Successfully applied 5 migrations to schema "public", now at version v5 (execution time 00:00.028s)
+2025-11-20 11:36:56 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-20 11:36:56 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-20 11:36:56 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-20 11:36:56 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-20 11:36:56 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-20 11:36:56 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-20 11:36:56 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 11:36:56 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-20 11:36:57 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-11-20 11:36:57 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-11-20 11:36:57 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Started PoojaMasterBackendServiceApplication in 1.399 seconds (process running for 1.635)
+2025-11-20 11:49:53 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 11:49:53 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-20 11:49:53 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-20 11:50:16 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Starting PoojaMasterBackendServiceApplication using Java 21.0.9 with PID 11958 (/Users/charanteja/Divinova/Backend/pooja-master-backend-service/app/target/classes started by charanteja in /Users/charanteja/Divinova/Backend/pooja-master-backend-service)
+2025-11-20 11:50:16 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-20 11:50:17 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-20 11:50:17 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 JPA repository interfaces.
+2025-11-20 11:50:17 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-20 11:50:17 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-20 11:50:17 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-20 11:50:17 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-20 11:50:17 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-20 11:50:17 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 432 ms
+2025-11-20 11:50:17 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-20 11:50:17 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@421d54b3
+2025-11-20 11:50:17 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-20 11:50:17 INFO  [main] org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/mydb (PostgreSQL 16.11)
+2025-11-20 11:50:17 INFO  [main] o.f.c.i.s.JdbcTableSchemaHistory - Schema history table "public"."flyway_schema_history" does not exist yet
+2025-11-20 11:50:17 INFO  [main] o.f.core.internal.command.DbValidate - Successfully validated 5 migrations (execution time 00:00.008s)
+2025-11-20 11:50:17 INFO  [main] o.f.c.i.s.JdbcTableSchemaHistory - Creating Schema History table "public"."flyway_schema_history" ...
+2025-11-20 11:50:17 INFO  [main] o.f.core.internal.command.DbMigrate - Current version of schema "public": << Empty Schema >>
+2025-11-20 11:50:17 INFO  [main] o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "1 - create pooja items"
+2025-11-20 11:50:17 INFO  [main] o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "2 - create occasion"
+2025-11-20 11:50:17 INFO  [main] o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "3 - create pooja occasion mapping"
+2025-11-20 11:50:17 INFO  [main] o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "4 - create indices"
+2025-11-20 11:50:17 INFO  [main] o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "5 - create function triggers"
+2025-11-20 11:50:17 INFO  [main] o.f.core.internal.command.DbMigrate - Successfully applied 5 migrations to schema "public", now at version v5 (execution time 00:00.027s)
+2025-11-20 11:50:17 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-20 11:50:17 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-20 11:50:17 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-20 11:50:17 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-20 11:50:17 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-20 11:50:17 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-20 11:50:17 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 11:50:17 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-20 11:50:18 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-11-20 11:50:18 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-11-20 11:50:18 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Started PoojaMasterBackendServiceApplication in 1.4 seconds (process running for 1.612)
+2025-11-20 12:22:50 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 12:22:50 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-20 12:22:50 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-20 12:29:51 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Starting PoojaMasterBackendServiceApplication using Java 21.0.9 with PID 13611 (/Users/charanteja/Divinova/Backend/pooja-master-backend-service/app/target/classes started by charanteja in /Users/charanteja/Divinova/Backend/pooja-master-backend-service)
+2025-11-20 12:29:51 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-20 12:29:51 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-20 12:29:51 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2025-11-20 12:29:52 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-20 12:29:52 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-20 12:29:52 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-20 12:29:52 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-20 12:29:52 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-20 12:29:52 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 507 ms
+2025-11-20 12:29:52 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-20 12:29:52 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@252ec02e
+2025-11-20 12:29:52 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-20 12:29:52 INFO  [main] org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/mydb (PostgreSQL 16.11)
+2025-11-20 12:29:52 INFO  [main] o.f.core.internal.command.DbValidate - Successfully validated 5 migrations (execution time 00:00.015s)
+2025-11-20 12:29:52 INFO  [main] o.f.core.internal.command.DbMigrate - Current version of schema "public": 5
+2025-11-20 12:29:52 INFO  [main] o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+2025-11-20 12:29:52 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-20 12:29:52 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-20 12:29:52 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-20 12:29:52 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-20 12:29:52 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-20 12:29:52 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-20 12:29:52 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 12:29:52 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-20 12:29:52 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-11-20 12:29:52 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-11-20 12:29:52 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Started PoojaMasterBackendServiceApplication in 1.497 seconds (process running for 1.735)
+2025-11-20 12:30:27 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-20 12:30:27 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-20 12:30:27 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-11-20 12:30:27 INFO  [http-nio-8080-exec-1] o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 26 ms
+2025-11-20 12:46:48 WARN  [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m56s637ms).
+2025-11-20 12:47:57 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 12:47:57 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-20 12:47:57 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-20 12:49:08 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Starting PoojaMasterBackendServiceApplication using Java 21.0.9 with PID 13908 (/Users/charanteja/Divinova/Backend/pooja-master-backend-service/app/target/classes started by charanteja in /Users/charanteja/Divinova/Backend/pooja-master-backend-service)
+2025-11-20 12:49:08 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-20 12:49:08 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-20 12:49:08 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2025-11-20 12:49:09 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-20 12:49:09 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-20 12:49:09 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-20 12:49:09 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-20 12:49:09 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-20 12:49:09 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 646 ms
+2025-11-20 12:49:09 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-20 12:49:09 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3b30eec5
+2025-11-20 12:49:09 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-20 12:49:09 INFO  [main] org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/mydb (PostgreSQL 16.11)
+2025-11-20 12:49:09 INFO  [main] o.f.core.internal.command.DbValidate - Successfully validated 5 migrations (execution time 00:00.012s)
+2025-11-20 12:49:09 INFO  [main] o.f.core.internal.command.DbMigrate - Current version of schema "public": 5
+2025-11-20 12:49:09 INFO  [main] o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+2025-11-20 12:49:09 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-20 12:49:09 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-20 12:49:09 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-20 12:49:09 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-20 12:49:09 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-20 12:49:09 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-20 12:49:09 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 12:49:09 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-20 12:49:10 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoints beneath base path '/actuator'
+2025-11-20 12:49:10 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-11-20 12:49:10 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-11-20 12:49:10 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Started PoojaMasterBackendServiceApplication in 1.874 seconds (process running for 2.098)
+2025-11-20 12:49:16 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-20 12:49:16 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-20 12:49:16 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-11-20 12:49:17 INFO  [http-nio-8080-exec-4] o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 20 ms
+2025-11-20 12:57:40 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 12:57:40 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-20 12:57:40 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-20 13:06:24 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Starting PoojaMasterBackendServiceApplication using Java 21.0.9 with PID 14656 (/Users/charanteja/Divinova/Backend/pooja-master-backend-service/app/target/classes started by charanteja in /Users/charanteja/Divinova/Backend/pooja-master-backend-service)
+2025-11-20 13:06:24 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-20 13:06:24 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-20 13:06:24 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2025-11-20 13:06:24 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-20 13:06:24 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-20 13:06:24 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-20 13:06:24 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-20 13:06:24 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-20 13:06:24 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 645 ms
+2025-11-20 13:06:25 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-20 13:06:25 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@64757d56
+2025-11-20 13:06:25 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-20 13:06:25 INFO  [main] org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/mydb (PostgreSQL 16.11)
+2025-11-20 13:06:25 INFO  [main] o.f.core.internal.command.DbValidate - Successfully validated 5 migrations (execution time 00:00.013s)
+2025-11-20 13:06:25 INFO  [main] o.f.core.internal.command.DbMigrate - Current version of schema "public": 5
+2025-11-20 13:06:25 INFO  [main] o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+2025-11-20 13:06:25 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-20 13:06:25 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-20 13:06:25 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-20 13:06:25 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-20 13:06:25 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-20 13:06:25 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-20 13:06:25 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 13:06:25 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-20 13:06:25 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoints beneath base path '/actuator'
+2025-11-20 13:06:25 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-11-20 13:06:25 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-11-20 13:06:26 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Started PoojaMasterBackendServiceApplication in 1.882 seconds (process running for 2.101)
+2025-11-20 13:06:37 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-20 13:06:37 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-20 13:06:37 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-11-20 13:06:37 INFO  [http-nio-8080-exec-4] o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 20 ms
+2025-11-20 13:07:39 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 13:07:39 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-20 13:07:39 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-20 13:08:03 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Starting PoojaMasterBackendServiceApplication using Java 21.0.9 with PID 14858 (/Users/charanteja/Divinova/Backend/pooja-master-backend-service/app/target/classes started by charanteja in /Users/charanteja/Divinova/Backend/pooja-master-backend-service)
+2025-11-20 13:08:03 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-20 13:08:03 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-20 13:08:03 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2025-11-20 13:08:03 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-20 13:08:03 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-20 13:08:03 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-20 13:08:03 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-20 13:08:03 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-20 13:08:03 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 636 ms
+2025-11-20 13:08:04 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-20 13:08:04 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@16cf7fd0
+2025-11-20 13:08:04 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-20 13:08:04 INFO  [main] org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/mydb (PostgreSQL 16.11)
+2025-11-20 13:08:04 INFO  [main] o.f.core.internal.command.DbValidate - Successfully validated 5 migrations (execution time 00:00.013s)
+2025-11-20 13:08:04 INFO  [main] o.f.core.internal.command.DbMigrate - Current version of schema "public": 5
+2025-11-20 13:08:04 INFO  [main] o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+2025-11-20 13:08:04 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-20 13:08:04 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-20 13:08:04 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-20 13:08:04 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-20 13:08:04 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-20 13:08:04 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-20 13:08:04 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 13:08:04 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-20 13:08:05 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoints beneath base path '/actuator'
+2025-11-20 13:08:05 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-11-20 13:08:05 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-11-20 13:08:05 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Started PoojaMasterBackendServiceApplication in 1.877 seconds (process running for 2.127)
+2025-11-20 13:08:12 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-20 13:08:12 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-20 13:08:12 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-11-20 13:08:12 INFO  [http-nio-8080-exec-4] o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 21 ms
+2025-11-20 13:09:57 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 13:09:57 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-20 13:09:57 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-20 13:10:07 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Starting PoojaMasterBackendServiceApplication using Java 21.0.9 with PID 15073 (/Users/charanteja/Divinova/Backend/pooja-master-backend-service/app/target/classes started by charanteja in /Users/charanteja/Divinova/Backend/pooja-master-backend-service)
+2025-11-20 13:10:07 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-20 13:10:07 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-20 13:10:07 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2025-11-20 13:10:07 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-20 13:10:07 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-20 13:10:07 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-20 13:10:07 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-20 13:10:07 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-20 13:10:07 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 677 ms
+2025-11-20 13:10:07 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-20 13:10:08 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@ff21443
+2025-11-20 13:10:08 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-20 13:10:08 INFO  [main] org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/mydb (PostgreSQL 16.11)
+2025-11-20 13:10:08 INFO  [main] o.f.core.internal.command.DbValidate - Successfully validated 5 migrations (execution time 00:00.013s)
+2025-11-20 13:10:08 INFO  [main] o.f.core.internal.command.DbMigrate - Current version of schema "public": 5
+2025-11-20 13:10:08 INFO  [main] o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+2025-11-20 13:10:08 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-20 13:10:08 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-20 13:10:08 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-20 13:10:08 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-20 13:10:08 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-20 13:10:08 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-20 13:10:08 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 13:10:08 WARN  [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'occasionController' defined in file [/Users/charanteja/Divinova/Backend/pooja-master-backend-service/core/target/classes/com/divinova/controller/OccasionController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'occasionService' defined in file [/Users/charanteja/Divinova/Backend/pooja-master-backend-service/core/target/classes/com/divinova/service/OccasionService.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.divinova.repository.OccasionRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-11-20 13:10:08 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 13:10:08 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-20 13:10:08 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-20 13:10:08 INFO  [main] o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-11-20 13:10:08 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-11-20 13:10:08 ERROR [main] o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.divinova.service.OccasionService required a bean of type 'com.divinova.repository.OccasionRepository' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.divinova.repository.OccasionRepository' in your configuration.
+
+2025-11-20 13:11:33 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - Starting PoojaMasterBackendServiceApplication using Java 21.0.9 with PID 15389 (/Users/charanteja/Divinova/Backend/pooja-master-backend-service/app/target/classes started by charanteja in /Users/charanteja/Divinova/Backend/pooja-master-backend-service)
+2025-11-20 13:11:34 INFO  [main] c.d.p.PoojaMasterBackendServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-20 13:11:34 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-20 13:11:34 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2025-11-20 13:11:34 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-20 13:11:34 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-20 13:11:34 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-20 13:11:34 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-20 13:11:34 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-20 13:11:34 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 658 ms
+2025-11-20 13:11:34 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-20 13:11:34 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@9dc782d
+2025-11-20 13:11:34 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-20 13:11:34 INFO  [main] org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/mydb (PostgreSQL 16.11)
+2025-11-20 13:11:34 INFO  [main] o.f.core.internal.command.DbValidate - Successfully validated 5 migrations (execution time 00:00.013s)
+2025-11-20 13:11:34 INFO  [main] o.f.core.internal.command.DbMigrate - Current version of schema "public": 5
+2025-11-20 13:11:34 INFO  [main] o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+2025-11-20 13:11:35 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-20 13:11:35 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-20 13:11:35 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-20 13:11:35 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-20 13:11:35 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-20 13:11:35 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-20 13:11:35 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 13:11:35 WARN  [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'occasionController' defined in file [/Users/charanteja/Divinova/Backend/pooja-master-backend-service/core/target/classes/com/divinova/controller/OccasionController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'occasionService' defined in file [/Users/charanteja/Divinova/Backend/pooja-master-backend-service/core/target/classes/com/divinova/service/OccasionService.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.divinova.repository.OccasionRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-11-20 13:11:35 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 13:11:35 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-20 13:11:35 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-20 13:11:35 INFO  [main] o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-11-20 13:11:35 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-11-20 13:11:35 ERROR [main] o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.divinova.service.OccasionService required a bean of type 'com.divinova.repository.OccasionRepository' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.divinova.repository.OccasionRepository' in your configuration.
+
