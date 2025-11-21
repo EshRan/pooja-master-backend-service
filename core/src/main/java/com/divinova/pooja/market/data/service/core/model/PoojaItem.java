@@ -1,5 +1,6 @@
 package com.divinova.pooja.market.data.service.core.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,6 +14,7 @@ import java.time.OffsetDateTime;
                 @UniqueConstraint(columnNames = {"item_code"})
         }
 )
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Getter
 @Setter
 @NoArgsConstructor
