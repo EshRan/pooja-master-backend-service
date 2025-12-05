@@ -7,7 +7,7 @@
 
     <!-- ✅ Parent points to the root aggregator POM -->
     <parent>
-        <groupId>com.divinova</groupId>
+        <groupId>com.rituals.basket</groupId>
         <artifactId>pooja-master-backend-service</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
@@ -21,7 +21,7 @@
     <dependencies>
         <!-- ✅ Depend on core module (version inherited) -->
         <dependency>
-            <groupId>com.divinova</groupId>
+            <groupId>com.rituals.basket</groupId>
             <artifactId>core</artifactId>
             <version>${project.version}</version>
         </dependency>
