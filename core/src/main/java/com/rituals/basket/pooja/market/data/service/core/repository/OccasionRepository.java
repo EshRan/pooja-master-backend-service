@@ -1,6 +1,6 @@
-package com.divinova.pooja.market.data.service.core.repository;
+package com.rituals.basket.pooja.market.data.service.core.repository;
 
-import com.divinova.pooja.market.data.service.core.model.Occasion;
+import com.rituals.basket.pooja.market.data.service.core.model.Occasion;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

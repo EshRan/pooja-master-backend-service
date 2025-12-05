@@ -1,4 +1,4 @@
-package com.divinova.pooja.market.data.service.core.model;
+package com.rituals.basket.pooja.market.data.service.core.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;

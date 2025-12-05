@@ -1,7 +1,7 @@
-package com.divinova.pooja.market.data.service.core.controller;
+package com.rituals.basket.pooja.market.data.service.core.controller;
 
-import com.divinova.pooja.market.data.service.core.model.Occasion;
-import com.divinova.pooja.market.data.service.core.service.OccasionService;
+import com.rituals.basket.pooja.market.data.service.core.model.Occasion;
+import com.rituals.basket.pooja.market.data.service.core.service.OccasionService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
