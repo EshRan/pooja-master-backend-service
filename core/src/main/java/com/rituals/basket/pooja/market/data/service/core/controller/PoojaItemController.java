@@ -17,8 +17,10 @@ import java.util.List;
 @Tag(name = "Pooja Items", description = "Operations for Pooja Items")
 public class PoojaItemController {
 
+
     private final PoojaItemService poojaItemService;
 
+//    create pooja item
     @PostMapping
     @Operation(summary = "Create a Pooja Item")
     public ResponseEntity<PoojaItem> create(@RequestBody PoojaItem item) {
