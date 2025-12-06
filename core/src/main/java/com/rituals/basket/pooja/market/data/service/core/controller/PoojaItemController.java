@@ -20,6 +20,7 @@ public class PoojaItemController {
 
     private final PoojaItemService poojaItemService;
 
+//    create pooja item
     @PostMapping
     @Operation(summary = "Create a Pooja Item")
     public ResponseEntity<PoojaItem> create(@RequestBody PoojaItem item) {
