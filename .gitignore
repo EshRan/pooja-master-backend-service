@@ -3,6 +3,8 @@ target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+!**/src/main/java/com/rituals/basket/pooja/market/data/service/core/config/S3Config.java
+
 
 ### STS ###
 .apt_generated
