@@ -12,11 +12,7 @@ import java.time.OffsetDateTime;
                 @UniqueConstraint(columnNames = { "item_code" })
 })
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Data
 public class PoojaItem {
 
         @Id
