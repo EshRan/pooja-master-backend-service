@@ -1,12 +1,14 @@
 package com.rituals.basket.pooja.market.data.service.core.service;
 
 import com.rituals.basket.pooja.market.data.service.core.model.Occasion;
+import com.rituals.basket.pooja.market.data.service.core.model.PoojaItem;
 import com.rituals.basket.pooja.market.data.service.core.repository.OccasionRepository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -28,7 +30,13 @@ public class OccasionService {
     }
 
     public Occasion update(Long id, Occasion request) {
-        Occasion existing = get(id);
+        Occasion existing = new Occasion();
+        if(id !=null) {
+            Optional<Occasion> existingRecord = occasionRepository.findById(id);
+            if (existingRecord.isPresent()) {
+                existing = existingRecord.get();
+            }
+        }
 
         existing.setOccasionName(request.getOccasionName());
         existing.setOccasionCode(request.getOccasionCode());
@@ -40,5 +48,11 @@ public class OccasionService {
 
     public void delete(Long id) {
         occasionRepository.deleteById(id);
+    }
+
+    public List<Occasion> createItems(List<Occasion> occasions) {
+        return occasions.stream()
+                .map(Occasion-> update((Occasion.getId()), Occasion))
+                .toList();
     }
 }

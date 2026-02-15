@@ -28,19 +28,13 @@ public class PoojaItem {
         @Column(columnDefinition = "TEXT")
         private String description;
 
-        @Column(name = "image_url", length = 500)
-        private String imageUrl;
-
-        @Column(name = "video_url", length = 500)
-        private String videoUrl;
-
-        @Column(name = "poster_url", length = 500)
-        private String posterUrl;
+         @Column(name= "total_quantity",precision = 10, scale = 2)
+         private BigDecimal totalQuantity;
 
         @Column(name = "price", precision = 10, scale = 2)
         private BigDecimal price;
 
-        @Column(name = "s3_image_key", length = 500)
+        @Column(name = "s3_image_name", length = 500)
         private String s3ImageKey;
 
         @Column(name = "quantity_unit", length = 50)
@@ -49,8 +43,8 @@ public class PoojaItem {
         @Column(name = "estimated_quantity", precision = 10, scale = 2)
         private BigDecimal estimatedQuantity;
 
-        @Column(name = "is_active", nullable = false)
-        private Boolean isActive = true;
+        @Column(name = "in_stock", nullable = false)
+        private Boolean isInStock = true;
 
         @Column(name = "created_tsp", columnDefinition = "TIMESTAMP WITH TIME ZONE")
         private OffsetDateTime createdTsp;

@@ -27,6 +27,13 @@ public class PoojaItemController {
         return ResponseEntity.ok(poojaItemService.createItem(item));
     }
 
+    @PostMapping("/multiple")
+    @Operation(summary = "Create Multiple Items")
+    public ResponseEntity<List<PoojaItem>> createMultiple(@RequestBody List<PoojaItem> item) {
+        return ResponseEntity.ok(poojaItemService.createItems(item));
+    }
+
+
     @GetMapping("/{id}")
     @Operation(summary = "Get Pooja Item by ID")
     public ResponseEntity<PoojaItem> get(@PathVariable Long id) {
@@ -45,7 +52,7 @@ public class PoojaItemController {
             @PathVariable Long id,
             @RequestBody PoojaItem item
     ) {
-        return ResponseEntity.ok(poojaItemService.updateItem(id, item));
+        return ResponseEntity.ok(poojaItemService.saveOrUpdateItem(id, item));
     }
 
     @DeleteMapping("/{id}")

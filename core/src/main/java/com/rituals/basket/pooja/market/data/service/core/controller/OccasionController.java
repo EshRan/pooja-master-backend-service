@@ -1,6 +1,7 @@
 package com.rituals.basket.pooja.market.data.service.core.controller;
 
 import com.rituals.basket.pooja.market.data.service.core.model.Occasion;
+import com.rituals.basket.pooja.market.data.service.core.model.PoojaItem;
 import com.rituals.basket.pooja.market.data.service.core.service.OccasionService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -22,6 +23,12 @@ public class OccasionController {
     @Operation(summary = "Create Occasion")
     public ResponseEntity<Occasion> create(@RequestBody Occasion request) {
         return ResponseEntity.ok(occasionService.create(request));
+    }
+
+    @PostMapping("/multiple")
+    @Operation(summary = "Create Multiple Items")
+    public ResponseEntity<List<Occasion>> createMultiple(@RequestBody List<Occasion> item) {
+        return ResponseEntity.ok(occasionService.createItems(item));
     }
 
     @GetMapping("/{id}")
