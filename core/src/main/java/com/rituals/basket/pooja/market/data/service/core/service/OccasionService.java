@@ -14,6 +14,9 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class OccasionService {
 
+    private static final String BASE_URL =
+            "https://rituals-basket.s3.ap-south-1.amazonaws.com/";
+
     private final OccasionRepository occasionRepository;
 
     public Occasion create(Occasion occasion) {
@@ -26,12 +29,16 @@ public class OccasionService {
     }
 
     public List<Occasion> getAll() {
-        return occasionRepository.findAll();
+        List<Occasion> occasions = occasionRepository.findAll();
+        occasions.forEach(occasion -> {
+            occasion.setS3ImageKey(BASE_URL.concat(occasion.getS3ImageKey()));
+        });
+        return occasions;
     }
 
     public Occasion update(Long id, Occasion request) {
         Occasion existing = new Occasion();
-        if(id !=null) {
+        if (id != null) {
             Optional<Occasion> existingRecord = occasionRepository.findById(id);
             if (existingRecord.isPresent()) {
                 existing = existingRecord.get();
@@ -52,7 +59,7 @@ public class OccasionService {
 
     public List<Occasion> createItems(List<Occasion> occasions) {
         return occasions.stream()
-                .map(Occasion-> update((Occasion.getId()), Occasion))
+                .map(Occasion -> update((Occasion.getId()), Occasion))
                 .toList();
     }
 }

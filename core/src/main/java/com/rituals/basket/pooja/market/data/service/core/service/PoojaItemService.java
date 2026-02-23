@@ -13,6 +13,9 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PoojaItemService {
 
+    private static final String BASE_URL =
+            "https://rituals-basket.s3.ap-south-1.amazonaws.com/";
+
     private final PoojaItemRepository poojaItemRepository;
 
     public PoojaItem createItem(PoojaItem item) {
@@ -25,7 +28,11 @@ public class PoojaItemService {
     }
 
     public List<PoojaItem> getAllItems() {
-        return poojaItemRepository.findAll();
+        List<PoojaItem> all = poojaItemRepository.findAll();
+        all.forEach(poojaItem -> {
+            poojaItem.setS3ImageKey(BASE_URL.concat(poojaItem.getS3ImageKey()));
+        });
+        return all;
     }
 
     public PoojaItem saveOrUpdateItem(Long id, PoojaItem updated) {
@@ -39,9 +46,9 @@ public class PoojaItemService {
         existing.setItemName(updated.getItemName());
         existing.setItemCode(updated.getItemCode());
         existing.setDescription(updated.getDescription());
-        existing.setEstimatedQuantity(updated.getEstimatedQuantity());
+        existing.setTotalQuantity(updated.getTotalQuantity());
         existing.setQuantityUnit(updated.getQuantityUnit());
-        existing.setS3ImageKey(updated.getS3ImageKey());
+        existing.setS3ImageKey(BASE_URL.concat(updated.getS3ImageKey()));
         existing.setIsInStock(updated.getIsInStock());
 
         return poojaItemRepository.save(existing);
