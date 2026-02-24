@@ -13,5 +13,19 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  app:
+    build: .
+    container_name: pooja-backend-app
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/mydb
+      - SPRING_DATASOURCE_USERNAME=myuser
+      - SPRING_DATASOURCE_PASSWORD=mypassword
+      # Add other environment variables like AWS S3 credentials if necessary
+    ports:
+      - "8080:8080"
+    restart: always
+
 volumes:
   postgres_data:

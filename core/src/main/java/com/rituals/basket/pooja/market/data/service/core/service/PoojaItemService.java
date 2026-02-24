@@ -1,6 +1,5 @@
 package com.rituals.basket.pooja.market.data.service.core.service;
 
-
 import com.rituals.basket.pooja.market.data.service.core.model.PoojaItem;
 import com.rituals.basket.pooja.market.data.service.core.repository.PoojaItemRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,8 +12,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PoojaItemService {
 
-    private static final String BASE_URL =
-            "https://rituals-basket.s3.ap-south-1.amazonaws.com/";
+    private static final String BASE_URL = "https://rituals-basket.s3.ap-south-1.amazonaws.com/";
 
     private final PoojaItemRepository poojaItemRepository;
 
@@ -37,7 +35,7 @@ public class PoojaItemService {
 
     public PoojaItem saveOrUpdateItem(Long id, PoojaItem updated) {
         PoojaItem existing = new PoojaItem();
-        if(id !=null) {
+        if (id != null) {
             Optional<PoojaItem> existingRecord = poojaItemRepository.findById(id);
             if (existingRecord.isPresent()) {
                 existing = existingRecord.get();
@@ -50,10 +48,10 @@ public class PoojaItemService {
         existing.setQuantityUnit(updated.getQuantityUnit());
         existing.setS3ImageKey(BASE_URL.concat(updated.getS3ImageKey()));
         existing.setIsInStock(updated.getIsInStock());
+        existing.setStockInQuantity(updated.getStockInQuantity());
 
         return poojaItemRepository.save(existing);
     }
-
 
     public void deleteItem(Long id) {
         poojaItemRepository.deleteById(id);
@@ -65,4 +63,3 @@ public class PoojaItemService {
                 .toList();
     }
 }
-
