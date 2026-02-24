@@ -14,8 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class OccasionService {
 
-    private static final String BASE_URL =
-            "https://rituals-basket.s3.ap-south-1.amazonaws.com/";
+    private static final String BASE_URL = "https://rituals-basket.s3.ap-south-1.amazonaws.com/";
 
     private final OccasionRepository occasionRepository;
 
@@ -28,10 +27,22 @@ public class OccasionService {
                 .orElseThrow(() -> new RuntimeException("Occasion not found: " + id));
     }
 
+    public List<Occasion> getByCategory(String category) {
+        List<Occasion> occasions = occasionRepository.findByCategory(category);
+        occasions.forEach(occasion -> {
+            if (occasion.getS3ImageKey() != null && !occasion.getS3ImageKey().startsWith("http")) {
+                occasion.setS3ImageKey(BASE_URL.concat(occasion.getS3ImageKey()));
+            }
+        });
+        return occasions;
+    }
+
     public List<Occasion> getAll() {
         List<Occasion> occasions = occasionRepository.findAll();
         occasions.forEach(occasion -> {
-            occasion.setS3ImageKey(BASE_URL.concat(occasion.getS3ImageKey()));
+            if (occasion.getS3ImageKey() != null && !occasion.getS3ImageKey().startsWith("http")) {
+                occasion.setS3ImageKey(BASE_URL.concat(occasion.getS3ImageKey()));
+            }
         });
         return occasions;
     }
@@ -49,6 +60,7 @@ public class OccasionService {
         existing.setOccasionCode(request.getOccasionCode());
         existing.setDescription(request.getDescription());
         existing.setIsActive(request.getIsActive());
+        existing.setCategory(request.getCategory());
 
         return occasionRepository.save(existing);
     }

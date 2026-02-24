@@ -38,8 +38,11 @@ public class OccasionController {
     }
 
     @GetMapping
-    @Operation(summary = "List all Occasions")
-    public ResponseEntity<List<Occasion>> getAll() {
+    @Operation(summary = "List all Occasions (with optional category filter)")
+    public ResponseEntity<List<Occasion>> getAll(@RequestParam(required = false) String category) {
+        if (category != null && !category.isBlank()) {
+            return ResponseEntity.ok(occasionService.getByCategory(category));
+        }
         return ResponseEntity.ok(occasionService.getAll());
     }
 
@@ -47,8 +50,7 @@ public class OccasionController {
     @Operation(summary = "Update Occasion")
     public ResponseEntity<Occasion> update(
             @PathVariable Long id,
-            @RequestBody Occasion request
-    ) {
+            @RequestBody Occasion request) {
         return ResponseEntity.ok(occasionService.update(id, request));
     }
 
@@ -59,4 +61,3 @@ public class OccasionController {
         return ResponseEntity.noContent().build();
     }
 }
-

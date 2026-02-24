@@ -9,9 +9,9 @@ import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "occasions", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"occasion_code"})
+        @UniqueConstraint(columnNames = { "occasion_code" })
 })
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 @Getter
 @Setter
 @NoArgsConstructor
@@ -35,6 +35,8 @@ public class Occasion {
     @Column(name = "s3_image_name", length = 500)
     private String s3ImageKey;
 
+    @Column(name = "category", length = 50)
+    private String category;
 
     @Column(name = "is_active", nullable = false)
     private Boolean isActive = true;
