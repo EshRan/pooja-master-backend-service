@@ -43,6 +43,9 @@ public class Nut {
     @Column(name = "in_stock", nullable = false)
     private Boolean isInStock = true;
 
+    @Column(name = "stock_in_quantity")
+    private Integer stockInQuantity;
+
     @Column(name = "created_tsp", columnDefinition = "TIMESTAMP WITH TIME ZONE")
     private OffsetDateTime createdTsp;
 

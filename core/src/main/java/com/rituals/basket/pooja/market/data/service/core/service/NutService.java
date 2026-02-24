@@ -59,6 +59,7 @@ public class NutService {
         }
 
         existing.setIsInStock(updated.getIsInStock());
+        existing.setStockInQuantity(updated.getStockInQuantity());
 
         return nutRepository.save(existing);
     }
