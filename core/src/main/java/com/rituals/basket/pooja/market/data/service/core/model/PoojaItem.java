@@ -9,9 +9,9 @@ import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "pooja_items", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"item_code"})
+        @UniqueConstraint(columnNames = { "item_code" })
 })
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 @Data
 public class PoojaItem {
 
@@ -42,6 +42,9 @@ public class PoojaItem {
 
     @Column(name = "in_stock", nullable = false)
     private Boolean isInStock = true;
+
+    @Column(name = "stock_in_quantity")
+    private Integer stockInQuantity;
 
     @Column(name = "created_tsp", columnDefinition = "TIMESTAMP WITH TIME ZONE")
     private OffsetDateTime createdTsp;
