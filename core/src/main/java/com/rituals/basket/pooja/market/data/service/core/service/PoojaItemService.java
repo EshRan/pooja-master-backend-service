@@ -67,7 +67,6 @@ public class PoojaItemService {
                 item.getDescription() == null ||
                 item.getTotalQuantity() == null ||
                 item.getQuantityUnit() == null ||
-                item.getS3ImageKey() == null ||
                 item.getIsInStock() == null ||
                 item.getStockInQuantity() == null) {
 
