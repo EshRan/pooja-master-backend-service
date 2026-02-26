@@ -11,9 +11,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OccasionService {
 
-    private static final String BASE_URL =
-            "https://rituals-basket.s3.ap-south-1.amazonaws.com/";
-
     private final OccasionRepository occasionRepository;
 
     // =========================================================
@@ -50,8 +47,7 @@ public class OccasionService {
     private Occasion updateOccasion(Long id, Occasion request) {
 
         Occasion existing = occasionRepository.findById(id)
-                .orElseThrow(() ->
-                        new RuntimeException("Occasion not found with id: " + id));
+                .orElseThrow(() -> new RuntimeException("Occasion not found with id: " + id));
 
         mapNonNullFields(existing, request);
 
@@ -63,23 +59,16 @@ public class OccasionService {
     // =========================================================
 
     public Occasion get(Long id) {
-        Occasion occasion = occasionRepository.findById(id)
+        return occasionRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Occasion not found: " + id));
-
-        enrichImageUrl(occasion);
-        return occasion;
     }
 
     public List<Occasion> getAll() {
-        List<Occasion> occasions = occasionRepository.findAll();
-        occasions.forEach(this::enrichImageUrl);
-        return occasions;
+        return occasionRepository.findAll();
     }
 
     public List<Occasion> getByCategory(String category) {
-        List<Occasion> occasions = occasionRepository.findByCategory(category);
-        occasions.forEach(this::enrichImageUrl);
-        return occasions;
+        return occasionRepository.findByCategory(category);
     }
 
     // =========================================================
@@ -93,14 +82,11 @@ public class OccasionService {
         occasionRepository.deleteById(id);
     }
 
-
     public List<Occasion> saveAll(List<Occasion> occasions) {
         return occasions.stream()
                 .map(o -> saveOrUpdate(o.getId(), o))
                 .toList();
     }
-
-
 
     private void validateCreateRequest(Occasion request) {
 
@@ -115,7 +101,6 @@ public class OccasionService {
         }
     }
 
-
     private void mapAllFields(Occasion target, Occasion source) {
 
         target.setOccasionName(source.getOccasionName());
@@ -125,7 +110,7 @@ public class OccasionService {
         target.setIsActive(source.getIsActive());
 
         if (source.getS3ImageKey() != null) {
-            target.setS3ImageKey(buildS3Url(source.getS3ImageKey()));
+            target.setS3ImageKey(source.getS3ImageKey());
         }
     }
 
@@ -152,27 +137,8 @@ public class OccasionService {
         }
 
         if (source.getS3ImageKey() != null) {
-            target.setS3ImageKey(buildS3Url(source.getS3ImageKey()));
+            target.setS3ImageKey(source.getS3ImageKey());
         }
     }
 
-
-    private void enrichImageUrl(Occasion occasion) {
-        if (occasion.getS3ImageKey() != null &&
-                !occasion.getS3ImageKey().startsWith(BASE_URL)) {
-
-            occasion.setS3ImageKey(buildS3Url(occasion.getS3ImageKey()));
-        }
-    }
-
-    private String buildS3Url(String key) {
-
-        if (key == null) return null;
-
-        if (key.startsWith("http")) {
-            return key;
-        }
-
-        return BASE_URL + key;
-    }
 }

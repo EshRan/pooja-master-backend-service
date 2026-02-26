@@ -38,6 +38,10 @@ public class BannersService {
         existing.setBannerName(request.getBannerName());
         existing.setDescription(request.getDescription());
 
+        if (request.getS3ImageKey() != null) {
+            existing.setS3ImageKey(request.getS3ImageKey());
+        }
+
         return bannerRepository.save(existing);
     }
 
@@ -47,8 +51,7 @@ public class BannersService {
 
     public List<Banners> createItems(List<Banners> banners) {
         return banners.stream()
-                .map(Banners
-                        -> update((Banners.getId()), Banners))
+                .map(Banners -> update((Banners.getId()), Banners))
                 .toList();
     }
 }

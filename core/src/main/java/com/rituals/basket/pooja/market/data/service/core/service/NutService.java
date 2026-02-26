@@ -12,8 +12,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class NutService {
 
-    private static final String BASE_URL = "https://rituals-basket.s3.ap-south-1.amazonaws.com/";
-
     private final NutRepository nutRepository;
 
     public Nut createItem(Nut item) {
@@ -26,13 +24,7 @@ public class NutService {
     }
 
     public List<Nut> getAllItems() {
-        List<Nut> all = nutRepository.findAll();
-        all.forEach(nut -> {
-            if (nut.getS3ImageKey() != null && !nut.getS3ImageKey().startsWith("http")) {
-                nut.setS3ImageKey(BASE_URL.concat(nut.getS3ImageKey()));
-            }
-        });
-        return all;
+        return nutRepository.findAll();
     }
 
     public Nut saveOrUpdateItem(Long id, Nut updated) {
@@ -51,11 +43,7 @@ public class NutService {
         existing.setPrice(updated.getPrice());
 
         if (updated.getS3ImageKey() != null) {
-            if (!updated.getS3ImageKey().startsWith("http")) {
-                existing.setS3ImageKey(BASE_URL.concat(updated.getS3ImageKey()));
-            } else {
-                existing.setS3ImageKey(updated.getS3ImageKey());
-            }
+            existing.setS3ImageKey(updated.getS3ImageKey());
         }
 
         existing.setIsInStock(updated.getIsInStock());

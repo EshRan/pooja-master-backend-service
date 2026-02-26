@@ -14,8 +14,6 @@ import static org.springframework.util.ObjectUtils.isEmpty;
 @RequiredArgsConstructor
 public class PoojaItemService {
 
-    private static final String BASE_URL = "https://rituals-basket.s3.ap-south-1.amazonaws.com/";
-
     private final PoojaItemRepository poojaItemRepository;
 
     public PoojaItem getItem(Long id) {
@@ -24,11 +22,7 @@ public class PoojaItemService {
     }
 
     public List<PoojaItem> getAllItems() {
-        List<PoojaItem> all = poojaItemRepository.findAll();
-        all.forEach(poojaItem -> {
-            poojaItem.setS3ImageKey(BASE_URL.concat(poojaItem.getS3ImageKey()));
-        });
-        return all;
+        return poojaItemRepository.findAll();
     }
 
     public PoojaItem saveOrUpdateItem(Long id, PoojaItem updated) {
@@ -80,8 +74,7 @@ public class PoojaItemService {
         target.setItemCode(source.getItemCode());
         target.setDescription(source.getDescription());
         target.setTotalQuantity(source.getTotalQuantity());
-        target.setQuantityUnit(source.getQuantityUnit());
-        target.setS3ImageKey(buildS3Url(source.getS3ImageKey()));
+        target.setS3ImageKey(source.getS3ImageKey());
         target.setIsInStock(source.getIsInStock());
         target.setStockInQuantity(source.getStockInQuantity());
         target.setPrice(source.getPrice());
@@ -110,7 +103,7 @@ public class PoojaItemService {
         }
 
         if (source.getS3ImageKey() != null) {
-            target.setS3ImageKey(buildS3Url(source.getS3ImageKey()));
+            target.setS3ImageKey(source.getS3ImageKey());
         }
 
         if (source.getIsInStock() != null) {
@@ -124,16 +117,6 @@ public class PoojaItemService {
         if (source.getPrice() != null) {
             target.setPrice(source.getPrice());
         }
-    }
-
-    private String buildS3Url(String key) {
-        if (key == null) {
-            return null;
-        }
-        if (key.startsWith(BASE_URL)) {
-            return key;
-        }
-        return BASE_URL + key;
     }
 
     public List<PoojaItem> createItems(List<PoojaItem> item) {
