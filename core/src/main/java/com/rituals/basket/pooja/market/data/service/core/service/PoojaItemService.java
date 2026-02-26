@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import static org.springframework.util.ObjectUtils.isEmpty;
+
 @Service
 @RequiredArgsConstructor
 public class PoojaItemService {
@@ -15,10 +17,6 @@ public class PoojaItemService {
     private static final String BASE_URL = "https://rituals-basket.s3.ap-south-1.amazonaws.com/";
 
     private final PoojaItemRepository poojaItemRepository;
-
-    public PoojaItem createItem(PoojaItem item) {
-        return poojaItemRepository.save(item);
-    }
 
     public PoojaItem getItem(Long id) {
         return poojaItemRepository.findById(id)
@@ -34,32 +32,118 @@ public class PoojaItemService {
     }
 
     public PoojaItem saveOrUpdateItem(Long id, PoojaItem updated) {
-        PoojaItem existing = new PoojaItem();
-        if (id != null) {
-            Optional<PoojaItem> existingRecord = poojaItemRepository.findById(id);
-            if (existingRecord.isPresent()) {
-                existing = existingRecord.get();
-            }
+
+        if (id == null) {
+            return createItem(updated);
+        } else {
+            return updateItem(id, updated);
         }
-        existing.setItemName(updated.getItemName());
-        existing.setItemCode(updated.getItemCode());
-        existing.setDescription(updated.getDescription());
-        existing.setTotalQuantity(updated.getTotalQuantity());
-        existing.setQuantityUnit(updated.getQuantityUnit());
-        existing.setS3ImageKey(BASE_URL.concat(updated.getS3ImageKey()));
-        existing.setIsInStock(updated.getIsInStock());
-        existing.setStockInQuantity(updated.getStockInQuantity());
+    }
+
+    public PoojaItem createItem(PoojaItem updated) {
+
+        validateCreateRequest(updated);
+
+        PoojaItem entity = new PoojaItem();
+        mapAllFields(entity, updated);
+
+        return poojaItemRepository.save(entity);
+    }
+
+    private PoojaItem updateItem(Long id, PoojaItem updated) {
+
+        PoojaItem existing = poojaItemRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Pooja Item not found with id: " + id));
+
+        mapNonNullFields(existing, updated);
 
         return poojaItemRepository.save(existing);
     }
 
-    public void deleteItem(Long id) {
-        poojaItemRepository.deleteById(id);
+    private void validateCreateRequest(PoojaItem item) {
+
+        if (item.getItemName() == null ||
+                item.getItemCode() == null ||
+                item.getDescription() == null ||
+                item.getTotalQuantity() == null ||
+                item.getQuantityUnit() == null ||
+                item.getS3ImageKey() == null ||
+                item.getIsInStock() == null ||
+                item.getStockInQuantity() == null) {
+
+            throw new IllegalArgumentException("All fields are required for creating a new item");
+        }
+    }
+
+    private void mapAllFields(PoojaItem target, PoojaItem source) {
+
+        target.setItemName(source.getItemName());
+        target.setItemCode(source.getItemCode());
+        target.setDescription(source.getDescription());
+        target.setTotalQuantity(source.getTotalQuantity());
+        target.setQuantityUnit(source.getQuantityUnit());
+        target.setS3ImageKey(buildS3Url(source.getS3ImageKey()));
+        target.setIsInStock(source.getIsInStock());
+        target.setStockInQuantity(source.getStockInQuantity());
+        target.setPrice(source.getPrice());
+    }
+
+    private void mapNonNullFields(PoojaItem target, PoojaItem source) {
+
+        if (source.getItemName() != null) {
+            target.setItemName(source.getItemName());
+        }
+
+        if (source.getItemCode() != null) {
+            target.setItemCode(source.getItemCode());
+        }
+
+        if (source.getDescription() != null) {
+            target.setDescription(source.getDescription());
+        }
+
+        if (source.getTotalQuantity() != null) {
+            target.setTotalQuantity(source.getTotalQuantity());
+        }
+
+        if (source.getQuantityUnit() != null) {
+            target.setQuantityUnit(source.getQuantityUnit());
+        }
+
+        if (source.getS3ImageKey() != null) {
+            target.setS3ImageKey(buildS3Url(source.getS3ImageKey()));
+        }
+
+        if (source.getIsInStock() != null) {
+            target.setIsInStock(source.getIsInStock());
+        }
+
+        if (source.getStockInQuantity() != null) {
+            target.setStockInQuantity(source.getStockInQuantity());
+        }
+
+        if (source.getPrice() != null) {
+            target.setPrice(source.getPrice());
+        }
+    }
+
+    private String buildS3Url(String key) {
+        if (key == null) {
+            return null;
+        }
+        if (key.startsWith(BASE_URL)) {
+            return key;
+        }
+        return BASE_URL + key;
     }
 
     public List<PoojaItem> createItems(List<PoojaItem> item) {
         return item.stream()
                 .map(poojaItem -> saveOrUpdateItem(poojaItem.getId(), poojaItem))
                 .toList();
+    }
+
+    public void deleteItem(Long id) {
+        poojaItemRepository.deleteById(id);
     }
 }

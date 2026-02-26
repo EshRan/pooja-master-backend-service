@@ -1,14 +1,17 @@
 package com.rituals.basket.pooja.market.data.service.core.controller;
 
-
 import com.rituals.basket.pooja.market.data.service.core.model.PoojaItem;
 import com.rituals.basket.pooja.market.data.service.core.service.PoojaItemService;
+import com.rituals.basket.pooja.market.data.service.core.service.S3Service;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -17,13 +20,20 @@ import java.util.List;
 @Tag(name = "Pooja Items", description = "Operations for Pooja Items")
 public class PoojaItemController {
 
-
     private final PoojaItemService poojaItemService;
+    private final S3Service s3Service;
 
-//    create pooja item
-    @PostMapping
+    // create pooja item
+    @PostMapping(consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
     @Operation(summary = "Create a Pooja Item")
-    public ResponseEntity<PoojaItem> create(@RequestBody PoojaItem item) {
+    public ResponseEntity<PoojaItem> create(
+            @RequestPart("data") PoojaItem item,
+            @RequestPart(value = "image", required = false) MultipartFile image) throws IOException {
+
+        if (image != null && !image.isEmpty()) {
+            String imageKey = s3Service.uploadFile(image, item.getS3ImageKey());
+            item.setS3ImageKey(imageKey);
+        }
         return ResponseEntity.ok(poojaItemService.createItem(item));
     }
 
@@ -32,7 +42,6 @@ public class PoojaItemController {
     public ResponseEntity<List<PoojaItem>> createMultiple(@RequestBody List<PoojaItem> item) {
         return ResponseEntity.ok(poojaItemService.createItems(item));
     }
-
 
     @GetMapping("/{id}")
     @Operation(summary = "Get Pooja Item by ID")
@@ -46,12 +55,16 @@ public class PoojaItemController {
         return ResponseEntity.ok(poojaItemService.getAllItems());
     }
 
-    @PutMapping("/{id}")
+    @PutMapping(value = "/{id}", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
     @Operation(summary = "Update Pooja Item")
     public ResponseEntity<PoojaItem> update(
             @PathVariable Long id,
-            @RequestBody PoojaItem item
-    ) {
+            @RequestPart("data") PoojaItem item,
+            @RequestPart(value = "image", required = false) MultipartFile image) throws IOException {
+        if (image != null && !image.isEmpty()) {
+            String imageKey = s3Service.uploadFile(image, item.getS3ImageKey());
+            item.setS3ImageKey(imageKey);
+        }
         return ResponseEntity.ok(poojaItemService.saveOrUpdateItem(id, item));
     }
 

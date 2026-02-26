@@ -39,4 +39,7 @@ public class Banners {
 
         @Column(name = "updated_by", length = 100)
         private String updatedBy;
+
+        @Column(name = "s3_image_name", length = 500)
+        private String s3ImageKey;
 }
