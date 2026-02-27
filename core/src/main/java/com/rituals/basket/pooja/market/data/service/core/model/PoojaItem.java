@@ -34,6 +34,12 @@ public class PoojaItem {
     @Column(name = "price", precision = 10, scale = 2)
     private BigDecimal price;
 
+    @Column(name = "cost_price", precision = 10, scale = 2)
+    private BigDecimal costPrice;
+
+    @Column(name = "market_price", precision = 10, scale = 2)
+    private BigDecimal marketPrice;
+
     @Column(name = "s3_image_name", length = 500)
     private String s3ImageKey;
 

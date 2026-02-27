@@ -78,6 +78,8 @@ public class PoojaItemService {
         target.setIsInStock(source.getIsInStock());
         target.setStockInQuantity(source.getStockInQuantity());
         target.setPrice(source.getPrice());
+        target.setCostPrice(source.getCostPrice());
+        target.setMarketPrice(source.getMarketPrice());
     }
 
     private void mapNonNullFields(PoojaItem target, PoojaItem source) {
@@ -116,6 +118,14 @@ public class PoojaItemService {
 
         if (source.getPrice() != null) {
             target.setPrice(source.getPrice());
+        }
+
+        if (source.getCostPrice() != null) {
+            target.setCostPrice(source.getCostPrice());
+        }
+
+        if (source.getMarketPrice() != null) {
+            target.setMarketPrice(source.getMarketPrice());
         }
     }
 

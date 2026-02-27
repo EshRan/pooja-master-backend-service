@@ -15,8 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/mappings")
 @RequiredArgsConstructor
-@Tag(name = "Pooja Item - Occasion Mapping",
-        description = "Mapping operations between items and occasions")
+@Tag(name = "Pooja Item - Occasion Mapping", description = "Mapping operations between items and occasions")
 public class PoojaOccasionMappingController {
 
     private final PoojaOccasionMappingService mappingService;
@@ -26,11 +25,10 @@ public class PoojaOccasionMappingController {
     public ResponseEntity<PoojaItemOccasionMapping> create(
             @RequestParam Long itemId,
             @RequestParam Long occasionId,
-            @RequestParam(required = false) String notes
-    ) {
+            @RequestParam(required = false) String notes,
+            @RequestParam(required = false) Integer quantity) {
         return ResponseEntity.ok(
-                mappingService.create(itemId, occasionId, notes)
-        );
+                mappingService.create(itemId, occasionId, notes, quantity));
     }
 
     @GetMapping
@@ -46,4 +44,3 @@ public class PoojaOccasionMappingController {
         return ResponseEntity.noContent().build();
     }
 }
-

@@ -19,7 +19,7 @@ public class PoojaOccasionMappingService {
     private final PoojaItemRepository itemRepo;
     private final OccasionRepository occasionRepo;
 
-    public PoojaItemOccasionMapping create(Long itemId, Long occasionId, String notes) {
+    public PoojaItemOccasionMapping create(Long itemId, Long occasionId, String notes, Integer quantity) {
 
         PoojaItem item = itemRepo.findById(itemId)
                 .orElseThrow(() -> new RuntimeException("Item not found"));
@@ -31,6 +31,7 @@ public class PoojaOccasionMappingService {
                 .poojaItem(item)
                 .occasion(occasion)
                 .notes(notes)
+                .quantity(quantity)
                 .isActive(true)
                 .build();
 
@@ -45,4 +46,3 @@ public class PoojaOccasionMappingService {
         mappingRepo.deleteById(id);
     }
 }
-
