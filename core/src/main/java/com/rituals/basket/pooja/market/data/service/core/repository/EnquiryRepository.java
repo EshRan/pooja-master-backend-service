@@ -1,0 +1,7 @@
+package com.rituals.basket.pooja.market.data.service.core.repository;
+
+import com.rituals.basket.pooja.market.data.service.core.model.Enquiry;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EnquiryRepository extends JpaRepository<Enquiry, Long> {
+}
