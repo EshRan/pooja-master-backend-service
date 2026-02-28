@@ -4,6 +4,7 @@ import com.rituals.basket.pooja.market.data.service.core.model.Occasion;
 import com.rituals.basket.pooja.market.data.service.core.service.OccasionService;
 import com.rituals.basket.pooja.market.data.service.core.service.S3Service;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -51,12 +52,17 @@ public class OccasionController {
     }
 
     @GetMapping
-    @Operation(summary = "List all Occasions (optional category filter)")
+    @Operation(summary = "List all Occasions (optional category and isActive filters)")
     public ResponseEntity<List<Occasion>> getAll(
-            @RequestParam(required = false) String category) {
+            @Parameter(description = "Category of the occasion (e.g., FESTIVE, MARRIAGE)") @RequestParam(required = false) String category,
+            @RequestParam(required = false) Boolean isActive) {
 
-        if (category != null && !category.isBlank()) {
+        if (category != null && !category.isBlank() && isActive != null) {
+            return ResponseEntity.ok(occasionService.getByCategoryAndIsActive(category, isActive));
+        } else if (category != null && !category.isBlank()) {
             return ResponseEntity.ok(occasionService.getByCategory(category));
+        } else if (isActive != null) {
+            return ResponseEntity.ok(occasionService.getByIsActive(isActive));
         }
 
         return ResponseEntity.ok(occasionService.getAll());

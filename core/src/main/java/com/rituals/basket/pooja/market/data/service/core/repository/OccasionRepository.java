@@ -9,4 +9,8 @@ public interface OccasionRepository extends JpaRepository<Occasion, Long> {
 
     List<Occasion> findByCategory(String category);
 
+    List<Occasion> findByIsActive(Boolean isActive);
+
+    List<Occasion> findByCategoryAndIsActive(String category, Boolean isActive);
+
 }

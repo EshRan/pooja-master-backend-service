@@ -4,7 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 !**/src/main/java/com/rituals/basket/pooja/market/data/service/core/config/S3Config.java
-
+!**/src/main/resources/application.properties
 
 ### STS ###
 .apt_generated

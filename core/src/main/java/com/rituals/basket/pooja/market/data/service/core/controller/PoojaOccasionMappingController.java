@@ -37,6 +37,12 @@ public class PoojaOccasionMappingController {
         return ResponseEntity.ok(mappingService.getAll());
     }
 
+    @GetMapping("/occasion/{occasionId}")
+    @Operation(summary = "Get mappings by occasion ID")
+    public ResponseEntity<List<PoojaItemOccasionMapping>> getByOccasionId(@PathVariable Long occasionId) {
+        return ResponseEntity.ok(mappingService.getByOccasionId(occasionId));
+    }
+
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete a mapping")
     public ResponseEntity<Void> delete(@PathVariable Long id) {

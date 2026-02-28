@@ -71,6 +71,14 @@ public class OccasionService {
         return occasionRepository.findByCategory(category);
     }
 
+    public List<Occasion> getByIsActive(Boolean isActive) {
+        return occasionRepository.findByIsActive(isActive);
+    }
+
+    public List<Occasion> getByCategoryAndIsActive(String category, Boolean isActive) {
+        return occasionRepository.findByCategoryAndIsActive(category, isActive);
+    }
+
     // =========================================================
     // DELETE
     // =========================================================

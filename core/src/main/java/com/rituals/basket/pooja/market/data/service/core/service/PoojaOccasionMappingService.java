@@ -42,6 +42,10 @@ public class PoojaOccasionMappingService {
         return mappingRepo.findAll();
     }
 
+    public List<PoojaItemOccasionMapping> getByOccasionId(Long occasionId) {
+        return mappingRepo.findByOccasionId(occasionId);
+    }
+
     public void delete(Long id) {
         mappingRepo.deleteById(id);
     }
