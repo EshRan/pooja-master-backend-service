@@ -1,11 +1,12 @@
 package com.rituals.basket.pooja.market.data.service.core.model;
 
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "occasions", uniqueConstraints = {
@@ -40,6 +41,9 @@ public class Occasion {
 
     @Column(name = "is_active", nullable = false)
     private Boolean isActive = true;
+
+    @Column(name = "occasion_date")
+    private LocalDate occasionDate;
 
     @Column(name = "created_tsp", columnDefinition = "TIMESTAMP WITH TIME ZONE", insertable = false, updatable = false)
     private OffsetDateTime createdTsp;
