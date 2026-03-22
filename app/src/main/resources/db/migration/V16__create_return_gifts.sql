@@ -1,0 +1,13 @@
+
+CREATE TABLE IF NOT EXISTS return_gifts (
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    bags_id BIGINT NOT NULL REFERENCES bags(id) ON DELETE CASCADE,
+    pasupu_kommulu_id BIGINT NOT NULL REFERENCES pasupu_kommulu(id) ON DELETE CASCADE,
+    notes TEXT,
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    created_tsp TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_tsp TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    created_by VARCHAR(100),
+    updated_by VARCHAR(100),
+    UNIQUE(bags_id, pasupu_kommulu_id)
+);

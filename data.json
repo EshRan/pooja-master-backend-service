@@ -1,0 +1,10 @@
+{
+  "itemCode": "ITM1234",
+  "itemName": "Test Puja Item 4",
+  "description": "Dummy test item",
+  "totalQuantity": 500,
+  "quantityUnit": "grams",
+  "price": 120,
+  "isInStock": true,
+  "stockInQuantity": 50
+}

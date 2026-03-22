@@ -3,7 +3,6 @@ package com.rituals.basket.pooja.market.data.service.core.controller;
 import java.net.http.HttpHeaders;
 import java.util.List;
 
-import com.rituals.basket.pooja.market.data.service.core.model.PoojaItem;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

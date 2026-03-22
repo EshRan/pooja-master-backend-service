@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
         info = @Info(
                 title = "Pooja API",
                 version = "1.0.0",
-                description = "API documentation for Pooja Items and Occasions",
+                description = "API documentation for Pooja Items",
                 contact = @Contact(name = "EshRan", email = "deswari2891@gmail.com")
         )
 )
